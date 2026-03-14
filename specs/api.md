@@ -1,11 +1,19 @@
-# API Specifications (placeholder)
+# API Contract
 
-This file is the canonical API contract for the project. Update this file in `specs/` before implementing or changing any API surface.
+The canonical API contract is **`specs/api.yaml`** (OpenAPI 3.1).
 
-Sections to include:
-- Endpoints and HTTP methods
-- Request and response shapes (sync with `src/types.ts`)
-- Error codes and meanings
-- Example requests/responses
+> Always edit `api.yaml` — not this file — before implementing or changing any API surface.
 
-Fill this file with concrete API definitions before coding.
+## Key conventions
+
+- All responses use the `ApiResponse` envelope: `{ status, data, message }`
+- Errors set `data` to `{ code: ErrorCode, message: string }` (see `src/types.ts`)
+- Add new `ErrorCode` values to both `api.yaml` and `src/types.ts` together
+
+## Live spec URL
+
+```
+https://raw.githubusercontent.com/TOMTANG886/my-spec-kit/main/specs/api.yaml
+```
+
+Use this URL with `spec-reader-mcp` to fetch the latest contract from any project.
